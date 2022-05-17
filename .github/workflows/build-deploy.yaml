@@ -32,4 +32,4 @@ jobs:
           context: .
           file: ./deliveryService/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/delivery-service:${{ github.sha }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/apnimeshap098dockerhub/delivery-service:${{ github.sha }}
