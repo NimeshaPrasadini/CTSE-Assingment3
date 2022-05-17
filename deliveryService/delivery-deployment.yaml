@@ -1,0 +1,33 @@
+apiVersion: apps/v1 # Kubernetes API version
+kind: Deployment # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: delivery-service
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deliveryservice
+    spec:
+      containers:
+      - name: deliveryservice
+        image: apnimeshap098dockerhub/delivery-service:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: ASPNETCORE_URLS
+          value: http://*:8080
+  selector:
+    matchLabels:
+      app: deliveryservice
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deliveryservice
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+  selector:
+    app: deliveryservice
