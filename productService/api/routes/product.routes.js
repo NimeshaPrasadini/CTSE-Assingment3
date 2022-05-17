@@ -3,7 +3,13 @@ const Router = express.Router();
 
 const Product = require("../models/product.model");
 
+const {
+	saveProduct,
+	
 
+} = require("../controllers/product.controller");
+
+Router.post("/create", saveProduct);
 
 //get all products
 Router.get("/", (req, res) => {

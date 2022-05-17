@@ -13,6 +13,7 @@ import About from "../pages/About";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Contact from "../pages/Contact";
+import Product from "../pages/Product";
 import Profile from "../components/profile/EditCustomer";
 
 import EditCustomer from "../pages/Admin/customers/EditCustomer";
@@ -59,6 +60,9 @@ const App = () => {
         </PrivateRoute>
         <PrivateRoute exact path="/contact">
           <Contact />
+        </PrivateRoute>
+        <PrivateRoute exact path="/product">
+          <Product />
         </PrivateRoute>
         <Route exact path="/auth/register">
           <Register />

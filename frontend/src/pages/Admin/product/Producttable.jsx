@@ -20,7 +20,7 @@ export default class Producttable extends Component {
 
   //retrieve
   getUsers() {
-    axios.get("http://localhost:3000/product").then((res) => {
+    axios.get("http://localhost:3004/product").then((res) => {
       if (res.data.success) {
         this.setState({
           users: res.data.users,
@@ -32,7 +32,7 @@ export default class Producttable extends Component {
 
   //delete
   onDelete = (id) => {
-    axios.delete(`http://localhost:3000/product/${id}`).then((res) => {
+    axios.delete(`http://localhost:3004/product/${id}`).then((res) => {
       Swal.fire({
         position: "center",
         icon: "success",
@@ -56,7 +56,7 @@ export default class Producttable extends Component {
   handleTextSearch = (e) => {
     const searchKey = e.currentTarget.value;
 
-    axios.get("http://localhost:3000/product/").then((res) => {
+    axios.get("http://localhost:3004/product/").then((res) => {
       if (res.data.success) {
         this.filterData(res.data.users, searchKey);
       }
@@ -116,6 +116,9 @@ export default class Producttable extends Component {
         >
           Download Product Details
         </button>
+
+        
+       
         <table className="table">
           <thead>
             <tr>
