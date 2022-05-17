@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 COPY . .
 
-RUN npm i
+RUN npm install --force
 # If you are building your code for production
 # RUN npm ci --only=production
 
