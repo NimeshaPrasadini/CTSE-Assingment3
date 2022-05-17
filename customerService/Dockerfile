@@ -1,7 +1,7 @@
 FROM node:16-alpine
 WORKDIR /customerService
 
-COPY . .
+COPY ["package.json", "./"]
 
 RUN npm i
 EXPOSE 8080
