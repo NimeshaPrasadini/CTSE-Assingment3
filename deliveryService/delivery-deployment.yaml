@@ -7,10 +7,10 @@ spec:
   template:
     metadata:
       labels:
-        app: deliveryservice
+        app: delivery-service
     spec:
       containers:
-      - name: deliveryservice
+      - name: delivery-service
         image: apnimeshap098dockerhub/delivery-service:latest
         ports:
         - containerPort: 8080
@@ -19,15 +19,15 @@ spec:
           value: http://*:8080
   selector:
     matchLabels:
-      app: deliveryservice
+      app: delivery-service
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: deliveryservice
+  name: delivery-service
 spec:
   type: LoadBalancer
   ports:
   - port: 8080
   selector:
-    app: deliveryservice
+    app: delivery-service
