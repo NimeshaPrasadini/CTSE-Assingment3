@@ -1,0 +1,34 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customerservice
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: customerservice
+    spec:
+      containers:
+        - name: customerservice
+          image: nanlord/customerservice:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_URLS
+              value: http://*:8080
+  selector:
+    matchLabels:
+      app: customerservice
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: customerservice
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+  selector:
+    app: customerservice
