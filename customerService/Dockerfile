@@ -1,11 +1,11 @@
 FROM node:16-alpine
 
-WORKDIR ./customerService
-
+WORKDIR /customerService
+COPY package.json package-lock.json ./
 
 
 RUN npm i
-COPY . .
+
 EXPOSE 8080
 
 CMD [ "node", "server.js" ]
